@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/bg.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .box {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 470px;
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 350px;
+            height: 350px;
+            padding: 60px 20px;
+            box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05), 25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05), inset -20px -25px 25px rgba(255, 255, 255, 0.9);
+            border-radius: 52% 48% 33% 67% / 38% 45% 55% 62%;
+            transition: 0.5s;
+        }
+
+        .content:hover {
+            border-radius: 50%;
+        }
+
+        .content::before {
+            content: "";
+            position: absolute;
+            top: 50px;
+            left: 85px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.9;
+        }
+
+        .content::after {
+            content: "";
+            position: absolute;
+            top: 90px;
+            left: 110px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #130000;
+            opacity: 0.9;
+        }
+
+        .content div {
+            width: 225px;
+            position: relative;
+            border-radius: 25px;
+            box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1), inset -2px -5px 10px rgba(180, 251, 227, 0.494), 15px 15px 10px rgba(0, 0, 0, 0.369), 15px 10px 15px rgba(0, 0, 0, 0.025);
+        }
+
+        .content div::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+        }
+
+        .content input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 16px;
+            padding: 10px 15px;
+        }
+
+        .content input[type="submit"] {
+            color: #4e1e26eb;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 楷体;width: 40%;
+            font-weight: 700;
+        }
+
+        .content div:last-child {
+            width: 120px;
+            background: #ff0f5b;
+            box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1), inset -2px -5px 10px rgba(255, 255, 255, 1), 15px 15px 10px rgba(0, 0, 0, 0.05), 15px 10px 15px rgba(0, 0, 0, 0.025);
+            transition: 0.5s;
+        }
+
+        .content div:last-child:hover {
+            width: 150px;
+        }
+
+        .btns {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 120px;
+            height: 120px;
+            background: #c61dff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 楷体;color: #362b57;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: inset 10px 10px 10px rgba(190, 1, 254, 0.05), 15px 25px 10px rgba(190, 1, 254, 0.1), inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+            border-radius: 44% 56% 65% 35% / 57% 58% 42% 43%;
+            transition: 0.25s;
+        }
+
+        .btns:hover {
+            border-radius: 50%;
+        }
+
+        .btns::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.45;
+        }
+
+        .register {
+            bottom: 150px;
+            right: 0px;
+            width: 80px;
+            height: 80px;
+            border-radius: 49% 51% 52% 48% / 63% 59% 41% 37%;
+            background: #01b4ff;
+            box-shadow: inset 10px 10px 10px rgba(1, 180, 255, 0.05), 15px 25px 10px rgba(1, 180, 255, 0.1), 15px 20px 20px rgba(1, 180, 255, 0.1), inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .register::before {
+            left: 20px;
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="content">
+                <h1 class="animate__animated animate__jackInTheBox">登录</h1>
+                <div>
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div>
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <!-- 给登录按钮添加一个id，方便后续添加事件监听 -->
+                <input id="loginBtn" type="submit" value="登录">
+                <a href="#" class="btns">忘记密码</a>
+                <a href="#" class="btns register">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- 引入JavaScript代码 -->
+    <script>
+        // 获取登录按钮元素
+        const loginBtn = document.getElementById('loginBtn');
+
+        // 为登录按钮添加点击事件监听器
+        loginBtn.addEventListener('click', function (event) {
+            // 阻止表单默认提交行为
+            event.preventDefault();
+
+            // 执行跳转逻辑，例如跳转到页面二
+            window.location.href = 'zongyemian.html'; // 假设你要跳转到的页面二的URL是page2.html
+        });
+    </script>
+</body>
+
+</html>
