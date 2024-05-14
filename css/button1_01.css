@@ -1,0 +1,43 @@
+/* 该css控制的是下面“休闲一刻”按钮的动态效果 */
+.button01{
+    background: linear-gradient(to right, #c674ce 0%, #0a799e 50%, #0ffff7 100%);
+        background-size: 500%;
+        border: none;
+        border-radius: 5rem;
+        box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+        color: #ffffff;
+        cursor: pointer;
+        font: 20px "kaiti";
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: 0.06em;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 40%;
+        display: flex;
+        justify-content:center ;
+        align-content: center;
+        position:fixed;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+}
+.button01:hover {
+    animation-name: gradient;
+    -webkit-animation-name: gradient;
+    animation-duration: 2s;
+    -webkit-animation-duration: s;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}@keyframes gradient {
+    0% {
+        background-position: 20% 70%;
+    }
+
+    100% {
+        background-position: 100%;
+    }}

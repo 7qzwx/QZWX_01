@@ -1,0 +1,87 @@
+/* 最上面的文字效果 */
+/* NOTE: I only tested this on Google Chrome.*/
+
+.text01 {
+    width: 100%;
+    position: fixed;
+    top: 1%;
+    left: 1%;
+}
+
+.text01 h1:nth-child(1) {
+    color: #355c7d;
+    font-family: 'Helvetica';
+    font-weight: 800;
+    font-size:15px;
+    margin-left: 5%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50%;
+    animation: type 2s steps(40, end) forwards;
+}
+
+.text01 h1:nth-child(2) {
+    opacity: 0;
+    margin-top: 40px;
+    font-family: "kaiti";
+    font-weight: bolder;
+    background: linear-gradient(to right, #4597e3, #ff828e, #63b3f0);
+    font-weight: 600;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: shring-animation 1.1s steps(40, end) 1s forwards, blink 0.4s step-end infinite alternate;
+}
+
+@keyframes shring-animation {
+    0% {
+        background-position: 0 0;
+        opacity: 0;
+        width: 0;
+    }
+
+    1% {
+        background-position: 0 0;
+        opacity: 1;
+        border-right: 1px solid orange;
+    }
+
+    50% {
+        background-position: 150px 0;
+        opacity: 1;
+        border-right: 1px solid orange;
+    }
+
+    100% {
+        background-position: 400px 0;
+        opacity: 1;
+        border-right: 1px solid orange;
+    }
+}
+
+@keyframes type {
+    0% {
+        width: 0;
+    }
+
+    1%,
+    99% {
+        border-right: 1px solid orange;
+    }
+
+    100% {
+        border-right: none;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
