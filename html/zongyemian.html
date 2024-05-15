@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>佳期の网家</title>
-    <link rel="stylesheet" href="../css/button1_01.css" />
-    <link rel="stylesheet" href="../css/text1_01.css" />
-    <link rel="stylesheet" href="../css/bg.css" />
 
-<link rel="stylesheet" href="../css/button1_02.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>佳期の网家</title>
+  <link rel="stylesheet" href="../css/button1_01.css" />
+  <link rel="stylesheet" href="../css/text1_01.css" />
+  <link rel="stylesheet" href="../css/bg.css" />
+  <link rel="stylesheet" href="../css/button1_02.css">
 
-    <style>
+  <style>
+    /* 这个样式为留言板的模糊效果 */
+    .liuyanban {
+      position: fixed;
+      /* 保持相对定位 */
+      border-radius: 10px;
+      /* 将边框半径增加以使按钮更圆润 */
+      color: rgb(84, 19, 19);
+      /* 修改字体颜色 */
+      font-size:18px;
+      /* 修改字体大小 */
+      padding: 10px 20px;
+      /* 增加内边距以增加按钮大小 */
+      border: none;
+      /* 移除边框 */
+      cursor: pointer;
+      transition: background-color 0.3s;
+      /* 添加过渡效果 */
+      margin-top: 10px;
+      /* 添加顶部间距 */
+      top: 48%;
+      left: 10%;
+      font-family: kaiti;
+      font-weight: 600;
+    }
 
-    </style>
-  </head>
-  <body>
-   
-    
-    <div class="text01">
-      <h1>Hi, there are</h1>
-      <h1>佳期的电子小家！</h1>
+    .liuyanban::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: conic-gradient(from 90deg at 40% -25%, #13c39a, #f79d03, #ee6907, #e6390a, #de0d0d, #d61039, #cf1261, #c71585, #cf1261, #d61039, #de0d0d, #4d3e33, #f79d03, #ffd700, #ffd700, #1460cb);
+      filter: blur(26px);
+      transform: translate3d(3px, 0px, -1px);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* 悬停效果 */
+    .liuyanban:hover {
+      background-color: #fffbfbfc;
+      /* 修改悬停时的背景颜色 */
+      color: #000000;
+      font-weight: 1000;
+      font-size: 28px;
+      /* 修改悬停时的字体颜色 */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text01">
+    <h1>Hi, there are</h1>
+    <h1>佳期的电子小家！</h1>
+  </div>
+  <button class="button01">休闲一刻 🌴</button>
+  <!-- 下面是写翻页效果button1-02 始-->
+  <div class="card">
+    <div class="circle" style="--clr:hsl(208, 98%, 82%);">
+      <img src="../png/book1_02.jpg" class="logo">
     </div>
-    <button class="button01">休闲一刻 🌴</button>
-    <!-- <a href="yemian02.html">
-      <button>点击跳转</button> -->
-    
-      <!-- 下面是写翻页效果button1-02 -->
-        <div class="card">
-          <div class="circle" style="--clr:hsl(208, 98%, 82%);">
-            <img src="../png/book1_02.jpg" class="logo" >
-          </div>
-          <div class="content">
-            <h2>Menu</h2>
-            <p><b><i>这里记录着七种文学的菜谱！</i></b></p>
-            <a href="#">进入！</a>
-          </div>
-          <img src="../png/book1_01.png" class="product_img">
-        </div>
-      
-      </div>
-  </body>
+    <div class="content">
+      <h2>Menu</h2>
+      <p><b><i>这里记录着七种文学的菜谱！</i></b></p>
+      <a href="#">进入！</a>
+    </div>
+    <img src="../png/book1_01.png" class="product_img">
+  </div>
+  <!-- 翻页效果button1-02 末 -->
+
+  <!-- 留言板按钮 -->
+  <button class="liuyanban" onclick="redirectToLiuyanban()">留言板</button>
+  <script>
+    function redirectToLiuyanban() {
+      window.location.href = 'liuyanban.html';
+    }
+  </script>
+  <!-- 留言板按钮 -->
+</body>
+
 </html>

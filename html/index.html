@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
+   
     <link rel="stylesheet" href="../css/bg.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录页面</title>
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -182,32 +184,50 @@
             <div class="content">
                 <h1 class="animate__animated animate__jackInTheBox">登录</h1>
                 <div>
-                    <input type="text" placeholder="请输入用户名">
+                    <input id="usernameInput" type="text" placeholder="请输入用户名">
                 </div>
                 <div>
-                    <input type="password" placeholder="请输入密码">
+                    <input id="passwordInput" type="password" placeholder="请输入密码">
                 </div>
                 <!-- 给登录按钮添加一个id，方便后续添加事件监听 -->
                 <input id="loginBtn" type="submit" value="登录">
-                <a href="#" class="btns">忘记密码</a>
-                <a href="#" class="btns register">注册</a>
+                <a href="#" id="forgotPassword" class="btns">忘记密码</a>
+                <a href="#" id="registerBtn" class="btns register">注册</a>
             </div>
         </div>
     </div>
     <!-- 引入JavaScript代码 -->
     <script>
         // 获取登录按钮元素
-        const loginBtn = document.getElementById('loginBtn');
+       const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const forgotPassword = document.getElementById('forgotPassword');
 
-        // 为登录按钮添加点击事件监听器
         loginBtn.addEventListener('click', function (event) {
-            // 阻止表单默认提交行为
             event.preventDefault();
 
-            // 执行跳转逻辑，例如跳转到页面二
-            window.location.href = 'zongyemian.html'; // 假设你要跳转到的页面二的URL是page2.html
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            if ((username === '3117965903' && password === 'JQ221205') || (username === '3261811090' && password === 'JQ221205')) {
+                window.location.href = 'zongyemian.html';
+            } else {
+                alert('用户名或密码错误');
+            }
         });
+
+        registerBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('内部通道，不允许注册');
+        });
+
+        forgotPassword.addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('佳期+诞生日期');
+        });
+
     </script>
 </body>
+
 
 </html>
