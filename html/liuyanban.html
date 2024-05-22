@@ -2,11 +2,84 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>七种文学の留言板</title>
     <link rel="stylesheet" href="../css/font.css">
     <style>
+
+@media (max-width: 600px) {
+  /* 针对宽度小于600px的屏幕的样式 */
+  .messages {
+    width: 100%;
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #submitBtn {
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+  }
+
+  .message-info {
+    font-size: 20px;
+  }
+
+  .content {
+    font-size: 24px;
+  }
+}
+
+
+/* 确保背景填满整个屏幕 */
+body, .messages {
+  min-height: 100vh;
+}
+
+/* 媒体查询，针对移动设备的样式 */
+@media (max-width: 600px) {
+  .messages {
+    width: 100%;
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  #submitBtn {
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .message-info {
+    font-size: 14px;
+  }
+
+  .content {
+    font-size: 18px;
+    margin: 10px;
+  }
+
+  /* 优化生成的留言框的样式 */
+  .message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
       .version-text1 {
             position: fixed;
             bottom: 20px;
