@@ -2,85 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>七种文学の留言板</title>
     <link rel="stylesheet" href="../css/font.css">
     <style>
+        @media (max-width: 600px) {
+            .messages {
+                width: 100%;
+                padding: 10px;
+            }
 
-@media (max-width: 600px) {
-  /* 针对宽度小于600px的屏幕的样式 */
-  .messages {
-    width: 100%;
-    padding: 10px;
-  }
+            input,
+            textarea {
+                font-size: 16px;
+                padding: 10px;
+            }
 
-  input, textarea {
-    font-size: 16px;
-    padding: 10px;
-  }
+            #submitBtn {
+                font-size: 16px;
+                width: 100px;
+                height: 40px;
+            }
 
-  #submitBtn {
-    font-size: 16px;
-    width: 100px;
-    height: 40px;
-  }
+            .message-info {
+                font-size: 20px;
+            }
 
-  .message-info {
-    font-size: 20px;
-  }
+            .content {
+                font-size: 24px;
+            }
+        }
 
-  .content {
-    font-size: 24px;
-  }
-}
-
-
-/* 确保背景填满整个屏幕 */
-body, .messages {
-  min-height: 100vh;
-}
-
-/* 媒体查询，针对移动设备的样式 */
-@media (max-width: 600px) {
-  .messages {
-    width: 100%;
-    padding: 10px;
-  }
-
-  input, textarea {
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  #submitBtn {
-    font-size: 16px;
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-  }
-
-  .message-info {
-    font-size: 14px;
-  }
-
-  .content {
-    font-size: 18px;
-    margin: 10px;
-  }
-
-  /* 优化生成的留言框的样式 */
-  .message {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-}
-
-      .version-text1 {
+        .version-text1 {
             position: fixed;
             bottom: 20px;
             left: 50%;
@@ -89,13 +43,14 @@ body, .messages {
             color: #000000;
             font-weight: 600;
         }
-       * {
+
+        * {
             padding: 0;
             margin: 0;
             color: #fff;
             box-sizing: border-box;
         }
-  
+
         body {
             display: flex;
             justify-content: center;
@@ -104,7 +59,7 @@ body, .messages {
         }
 
         .messages {
-            margin-top: 100px;
+            margin-top: 50px;
             width: 600px;
             padding: 25px 50px;
             display: flex;
@@ -112,7 +67,6 @@ body, .messages {
             align-items: center;
             flex-direction: column;
             background: linear-gradient(to right bottom, rgba(255, 255, 255, .6), rgba(255, 255, 255, .3), rgba(255, 255, 255, .2));
-            background-color: rgba(255, 255, 255, 0.266);
             border-radius: 20px;
             box-shadow: 0 5px 25px #00000019;
         }
@@ -123,14 +77,13 @@ body, .messages {
             position: relative;
             flex-direction: column;
             width: 100%;
-            padding-bottom: 90px;
+            padding-bottom: 30px;
         }
 
         input:focus,
         textarea:focus {
             outline: none;
             box-shadow: 0 0 5px rgb(118, 35, 208);
-            /* 聚焦时的阴影效果 */
         }
 
         input,
@@ -138,27 +91,25 @@ body, .messages {
             border: none;
             color: #5e0c0c;
             margin-bottom: 15px;
-            font: 900 30px '楷体';
+            font: 900 20px '楷体';
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             background-color: rgb(171, 221, 250);
             background-image: linear-gradient(to right, rgb(249, 125, 234), rgb(117, 194, 255));
-            /* 添加渐变背景 */
         }
 
         #username {
-            height: 70px;
+            height: 50px;
         }
 
         #message {
-            height: 140px;
+            height: 100px;
         }
 
         .messages h1 {
             width: 100%;
-            text-align: left;
-            margin-bottom: 55px;
-            font-size: 30px;
+            margin-bottom: 30px;
+            font-size: 24px;
             background-image: linear-gradient(135deg, #20aee6 0%, #c78fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -167,82 +118,84 @@ body, .messages {
         }
 
         #submitBtn {
-            position: absolute;
-            right: 0;
-            bottom: 0;
+            position: relative;
+            margin-top: 10px;
             background-image: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
             border: none;
-            font-size: 30px;
+            font-size: 20px;
             letter-spacing: 5px;
-            width: 150px;
-            height: 65px;
-            border-radius: 50PX;
+            width: 120px;
+            height: 50px;
+            border-radius: 25px;
         }
 
         #messageBoard {
-            width: 200%;
+            width: 100%;
             text-align: left;
-        }
-
-        @keyframes messageFadeIn {
-            to {
-                opacity: 1;
-            }
+            margin-top: 20px;
         }
 
         .message {
             width: 100%;
-            margin: 10px;
-            padding: 10px;
+            margin: 10px 0;
+            padding: 20px;
             opacity: 0;
             animation: messageFadeIn 0.5s ease forwards;
             background-image: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
-            background-color: #5b3e3e;
-            margin: 70px 0;
             border-radius: 10px;
             box-shadow: 0 10px 20px #c6252526;
             text-shadow: 0px 0px 20px #ffffff;
-            
-        }
-
-        .message-info {
-            height: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 36px;
             position: relative;
         }
 
+        .message-info {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
         .info {
-            transform: translateY(-30px);
+            display: flex;
+            align-items: center;
         }
 
         .info img {
-            width: 150px;
-            height: 150px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            border: 10px #fff solid;
+            border: 3px #fff solid;
+            margin-right: 10px;
         }
 
-        strong {
-            position: absolute;
-            width: 00px;
-            letter-spacing: 3px;
-            top: 70px;
-            left: 170px;
+        .usernameDisplay {
+            font-weight: bold;
+            margin-right: 20px;
         }
 
         .message-info span {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            margin-left: auto;
+            font-size: 12px;
         }
 
         .content {
-            font-size: 44px;
-            margin: 30px;
-            width: 95%;
+            font-size: 16px;
+        }
+
+        .delete-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ff5050;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #cc0000;
         }
 
         .radio-container {
@@ -271,20 +224,18 @@ body, .messages {
         .radio-container input[type="radio"] {
             margin: 0 10px;
             appearance: none;
-            /* 隐藏原始的单选框 */
-            width:20px;
+            width: 20px;
             height: 20px;
-            border-radius: 50%; /* 将形状设为圆形 */
-            background-color: #18ffc9; /* 默认背景颜色 */
+            border-radius: 50%;
+            background-color: #18ffc9;
             position: relative;
         }
 
-        /* 自定义单选框的选中状态 */
         .radio-container input[type="radio"]:checked::before {
-            content: ''; /* 添加一个伪元素 */
+            content: '';
             width: 12px;
             height: 12px;
-            background-color: #2ecc71; /* 选中状态的背景颜色 */
+            background-color: #2ecc71;
             border-radius: 50%;
             position: absolute;
             top: 50%;
@@ -294,85 +245,126 @@ body, .messages {
         }
 
         .error-message {
-            color: red; /* 这里是原始的红色颜色 */
+            color: red;
             font-size: 14px;
             margin-top: 5px;
             font-weight: 700;
+            text-align: center;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+            }
         }
     </style>
     </head>
     
-    <body><div class="version-text1">Version 5.20</div>
-     
-
-   <div class="messages">
-        <h1>MESSAGE BOARD</h1>
-        <div class="form">
-            <!-- 将用户名文本框替换为单选框 -->
-            <div class="radio-container">
-                <input type="radio" id="jia" name="username" value="佳">
-                <label for="jia">佳</label>
-                <input type="radio" id="qi" name="username" value="七">
-                <label for="qi">七</label>
+    <body>
+        <div class="version-text1">Version 5.20</div>
+    
+        <div class="messages">
+            <h1>MESSAGE BOARD</h1>
+            <div class="form">
+                <div class="radio-container">
+                    <input type="radio" id="jia" name="username" value="佳">
+                    <label for="jia">佳</label>
+                    <input type="radio" id="qi" name="username" value="七">
+                    <label for="qi">七</label>
+                </div>
+                <textarea placeholder="赞美or吐槽点什么吧！" id="message"></textarea>
+                <button id="submitBtn">留言</button>
+                <div class="error-message" id="errorMessage"></div>
             </div>
-            <textarea placeholder="赞美or吐槽点什么吧！" id="message"></textarea>
-            <button id="submitBtn">留言</button>
-            <!-- 添加用于显示错误信息的容器 -->
-            <div class="error-message" id="errorMessage"></div>
+            <div id="messageBoard"></div>
         </div>
-        <div id="messageBoard"></div>
-    </div>
-    <!-- 移除了原有的用户信息显示部分，稍后在 JavaScript 中动态更新 -->
+    
+  <script>
+    // 定义全局变量messages
+    var messages = [];
 
-    <script>
-        document.getElementById('submitBtn').addEventListener('click', function () {
-                var selectedUsername = document.querySelector('input[name="username"]:checked');
-                var message = document.getElementById('message').value;
-                if (!selectedUsername) {
-                    document.getElementById('errorMessage').innerText = '还不知道是谁在这吐槽呢~名字都不敢留下！！';
-                    return;
-                }
-                if (message === '') {
-                    document.getElementById('errorMessage').innerText = '你到底要吐槽什么呢！！';
-                    return;
-                }
-                document.getElementById('errorMessage').innerText = '';
+    document.getElementById('submitBtn').addEventListener('click', function () {
+        var selectedUsername = document.querySelector('input[name="username"]:checked');
+        var message = document.getElementById('message').value;
+        if (!selectedUsername) {
+            document.getElementById('errorMessage').innerText = '还不知道是谁在这吐槽呢~名字都不敢留下！！';
+            return;
+        }
+        if (message === '') {
+            document.getElementById('errorMessage').innerText = '你到底要吐槽什么呢！！';
+            return;
+        }
+        document.getElementById('errorMessage').innerText = '';
 
-                var username = selectedUsername.value;
+        var username = selectedUsername.value;
+        var currentTime = getCurrentTime();
 
-                // 获取留言板元素和当前时间
-                var messageBoard = document.getElementById('messageBoard');
-                var newMessage = document.createElement('div');
-                newMessage.classList.add('message');
-                // 设置留言元素的innerHTML，包含用户名、时间和留言内容
-                newMessage.innerHTML = '<div class="message-info"><div class="info"><img class="avatarImg" src="" alt="avatar"><strong class="usernameDisplay">' +
-                    username + '</strong></div><span>发布于：' + getCurrentTime() +
-                    '</span></div><div class="content">' + message + '</div>';
-                // 在留言板的第一个子元素之前插入新的留言
-                messageBoard.insertBefore(newMessage, messageBoard.firstChild);
-                // 清空留言内容的输入框
-                document.getElementById('message').value = '';
+        var newMessage = {
+            username: username,
+            message: message,
+            time: currentTime
+        };
 
-                // 更新头像和用户名显示
-                var avatarImg = newMessage.querySelector('.avatarImg');
-                var usernameDisplay = newMessage.querySelector('.usernameDisplay');
-                if (username === '佳') {
-                    avatarImg.src = '../png/liuyanban02.jpg';
-                } else if (username === '七') {
-                    avatarImg.src = '../png/liuyanban01.jpg';
-                }
+        // 将新消息添加到全局messages数组中
+        messages.push(newMessage);
+        localStorage.setItem('messages', JSON.stringify(messages));
+
+        displayMessage(newMessage);
+        document.getElementById('message').value = '';
+    });
+
+    function displayMessage(message) {
+        var messageBoard = document.getElementById('messageBoard');
+        var newMessage = document.createElement('div');
+        newMessage.classList.add('message');
+        newMessage.innerHTML = '<div class="message-info"><div class="info"><img class="avatarImg" src="" alt="avatar"><strong class="usernameDisplay">' +
+            message.username + '</strong></div><span>发布于：' + message.time +
+            '</span></div><div class="content">' + message.message + '</div><button class="delete-btn">删除</button>';
+        messageBoard.insertBefore(newMessage, messageBoard.firstChild);
+
+        var avatarImg = newMessage.querySelector('.avatarImg');
+        if (message.username === '佳') {
+            avatarImg.src = '../png/liuyanban02.jpg';
+        } else if (message.username === '七') {
+            avatarImg.src = '../png/liuyanban01.jpg';
+        }
+
+        // 绑定删除按钮的点击事件
+        var deleteBtn = newMessage.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function () {
+            // 根据消息的时间和用户名查找要删除的消息
+            var index = messages.findIndex(function (msg) {
+                return msg.time === message.time && msg.username === message.username;
             });
-
-            function getCurrentTime() {
-                var now = new Date();
-                var year = now.getFullYear();
-                var month = ('0' + (now.getMonth() + 1)).slice(-2);
-                var day = ('0' + now.getDate()).slice(-2);
-                var hours = ('0' + now.getHours()).slice(-2);
-                var minutes = ('0' + now.getMinutes()).slice(-2);
-                var seconds = ('0' + now.getSeconds()).slice(-2);
-                return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+            if (index !== -1) {
+                var messageBoard = document.getElementById('messageBoard');
+                messageBoard.removeChild(newMessage);
+                messages.splice(index, 1);
+                localStorage.setItem('messages', JSON.stringify(messages));
             }
-        </script>
-</body>
+        });
+    }
+
+    function loadMessages() {
+        // 从本地存储加载消息，并设置全局messages变量
+        messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messages.forEach(displayMessage);
+    }
+
+    function getCurrentTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = ('0' + (now.getMonth() + 1)).slice(-2);
+        var day = ('0' + now.getDate()).slice(-2);
+        var hours = ('0' + now.getHours()).slice(-2);
+        var minutes = ('0' + now.getMinutes()).slice(-2);
+        var seconds = ('0' + now.getSeconds()).slice(-2);
+        return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    }
+
+    document.addEventListener('DOMContentLoaded', loadMessages);
+</script>
+
+    </body>
+    
     </html>
